@@ -1,4 +1,8 @@
 ### CHANGELOG
+#### V1.6.5 (November 10, 2014)
+
+   * Added user-agent header to classic SDK codebase
+   
 #### V1.6.4 (October 16, 2014)
 
    * Change SSL to TLS in SSLUtil.java for SSL Poodle issue
