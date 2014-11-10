@@ -18,6 +18,7 @@ import com.paypal.exception.ClientActionRequiredException;
 import com.paypal.exception.InvalidCredentialException;
 import com.paypal.exception.MissingCredentialException;
 import com.paypal.sdk.exceptions.OAuthException;
+import com.paypal.sdk.util.UserAgentHeader;
 
 /**
  * <code>MerchantAPICallPreHandler</code> is an implementation of
@@ -413,6 +414,10 @@ public class MerchantAPICallPreHandler implements APICallPreHandler {
 				Constants.PAYLOAD_FORMAT_SOAP);
 		returnMap.put(Constants.PAYPAL_REQUEST_SOURCE_HEADER, sdkName + "-"
 				+ sdkVersion);
+
+		// Add user-agent header
+		UserAgentHeader uaHeader = new UserAgentHeader(sdkName, sdkVersion);
+		returnMap.putAll(uaHeader.getHeader());
 		return returnMap;
 	}
 

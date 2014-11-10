@@ -15,6 +15,7 @@ import com.paypal.exception.ClientActionRequiredException;
 import com.paypal.exception.InvalidCredentialException;
 import com.paypal.exception.MissingCredentialException;
 import com.paypal.sdk.exceptions.OAuthException;
+import com.paypal.sdk.util.UserAgentHeader;
 
 /**
  * <code>PlatformAPICallPreHandler</code> is an implementation of
@@ -396,6 +397,10 @@ public class PlatformAPICallPreHandler implements APICallPreHandler {
 		returnMap.put(Constants.PAYPAL_REQUEST_SOURCE_HEADER, sdkName + "-"
 				+ sdkVersion);
 
+		// Add user-agent header
+		UserAgentHeader uaHeader = new UserAgentHeader(sdkName, sdkVersion);
+		returnMap.putAll(uaHeader.getHeader());
+		
 		String sandboxEmailAddress = this.configurationMap
 				.get(Constants.SANDBOX_EMAIL_ADDRESS);
 		if (sandboxEmailAddress != null) {
