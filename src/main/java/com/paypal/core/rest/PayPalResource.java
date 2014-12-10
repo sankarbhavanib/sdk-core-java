@@ -142,7 +142,11 @@ public abstract class PayPalResource {
 	 * @return OAuthTokenCredential instance.
 	 */
 	public static OAuthTokenCredential getOAuthTokenCredential() {
-		return new OAuthTokenCredential(getClientID(), getClientSecret());
+		if(configInitialized){
+			return new OAuthTokenCredential(getClientID(), getClientSecret(), configurationMap);
+		}else{
+			return new OAuthTokenCredential(getClientID(), getClientSecret());			
+		}
 	}
 
 	/**
