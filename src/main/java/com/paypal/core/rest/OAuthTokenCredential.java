@@ -57,11 +57,10 @@ public final class OAuthTokenCredential implements ICredential {
 	 */
 	private String accessToken;
 
-
-    /**
-     * Lifetime in seconds of the access token
-     */
-    private long expires = 0;
+	/**
+	 * Lifetime in seconds of the access token
+	 */
+	private long expires = 0;
 
 	/**
 	 * Map used for dynamic configuration
@@ -148,17 +147,15 @@ public final class OAuthTokenCredential implements ICredential {
 		return "Basic " + base64EncodedString;
 	}
 
-
-    /**
-     * Specifies how long this token can be used for placing API calls. The
-     * remaining lifetime is given in seconds.
-     *
-     * @return remaining lifetime of this access token in seconds
-     */
-    public long expiresIn(){
-        return expires - new java.util.Date().getTime();
-    }
-
+	/**
+	 * Specifies how long this token can be used for placing API calls. The
+	 * remaining lifetime is given in seconds.
+	 * 
+	 * @return remaining lifetime of this access token in seconds
+	 */
+	public long expiresIn() {
+		return expires - new java.util.Date().getTime();
+	}
 
 	private String generateAccessToken() throws PayPalRESTException {
 		String generatedToken = null;
@@ -203,6 +200,8 @@ public final class OAuthTokenCredential implements ICredential {
 			// Accept only json output
 			headers.put(Constants.HTTP_ACCEPT_HEADER,
 					Constants.HTTP_CONTENT_TYPE_JSON);
+			headers.put(Constants.HTTP_CONTENT_TYPE_HEADER,
+					Constants.HTTP_CONFIG_DEFAULT_CONTENT_TYPE);
 			UserAgentHeader userAgentHeader = new UserAgentHeader(
 					sdkVersion != null ? sdkVersion.getSDKId() : null,
 					sdkVersion != null ? sdkVersion.getSDKVersion() : null);
@@ -216,9 +215,10 @@ public final class OAuthTokenCredential implements ICredential {
 					+ " "
 					+ jsonElement.getAsJsonObject().get("access_token")
 							.getAsString();
-            // Save expiry date
-            long tokenLifeTime = jsonElement.getAsJsonObject().get("expires_in").getAsLong();
-            expires = new Date().getTime() + tokenLifeTime;
+			// Save expiry date
+			long tokenLifeTime = jsonElement.getAsJsonObject()
+					.get("expires_in").getAsLong();
+			expires = new Date().getTime() + tokenLifeTime;
 		} catch (Exception e) {
 			throw new PayPalRESTException(e.getMessage(), e);
 		}
