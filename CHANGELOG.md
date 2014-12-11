@@ -1,4 +1,8 @@
 ### CHANGELOG
+#### V1.6.6 (December 11, 2014)
+
+   * Added content-type header when creating OAuth token
+
 #### V1.6.5 (November 10, 2014)
 
    * Added user-agent header to classic SDK codebase
