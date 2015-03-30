@@ -217,6 +217,11 @@ public final class Constants {
 	public static final String SDK_ID = "paypal-core-java";
 	
 	// Java SDK_VERSION for paypal-core
-	public static final String SDK_VERSION = "1.5.0";
+	public static final String SDK_VERSION = "1.6.0";
 
+	// SSLUtil JRE
+	public static final String SSLUTIL_JRE = "sslutil.jre";
+
+	// SSLUtil Protocol
+	public static final String SSLUTIL_PROTOCOL = "sslutil.protocol";
 }
