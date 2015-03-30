@@ -1,4 +1,8 @@
 ### CHANGELOG
+#### V1.6.7 (March 31, 2015)
+
+   * Made SSL connection configurable
+
 #### V1.6.6 (December 11, 2014)
 
    * Added content-type header when creating OAuth token
