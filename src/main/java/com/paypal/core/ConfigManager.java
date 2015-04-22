@@ -24,7 +24,7 @@ import com.paypal.sdk.util.ResourceLoader;
  * 
  */
 public final class ConfigManager {
-
+	
 	/**
 	 * Singleton instance variable
 	 */
@@ -64,6 +64,7 @@ public final class ConfigManager {
 		DEFAULT_PROPERTIES.put(Constants.HTTP_CONNECTION_MAX_CONNECTION, "100");
 		DEFAULT_PROPERTIES.put(Constants.DEVICE_IP_ADDRESS, "127.0.0.1");
 		DEFAULT_PROPERTIES.put(Constants.GOOGLE_APP_ENGINE, "false");
+		DEFAULT_PROPERTIES.put(Constants.SSLUTIL_JRE, "SunJSSE");
 		DEFAULT_PROPERTIES.put(Constants.SSLUTIL_PROTOCOL, "TLS");	
 		defaultMapView = new HashMap<String, String>();
 		for (Object object : DEFAULT_PROPERTIES.keySet()) {
@@ -82,13 +83,15 @@ public final class ConfigManager {
 		 */
 		ResourceLoader resourceLoader = new ResourceLoader(
 				Constants.DEFAULT_CONFIGURATION_FILE);
+		properties = new Properties();
 		try {
 			InputStream inputStream = resourceLoader.getInputStream();
-			properties = new Properties();
 			properties.load(inputStream);
-			setPropertyLoaded(true);
 		} catch (IOException e) {
-			throw new RuntimeException(e);
+			// We tried reading the config, but it seems like you dont have it. Skipping...
+			LoggingManager.info(ConfigManager.class, Constants.DEFAULT_CONFIGURATION_FILE + " not present. Skipping...");
+		} finally {
+			setPropertyLoaded(true);
 		}
 	}
 
@@ -142,7 +145,7 @@ public final class ConfigManager {
 				combinedProperties.load(new ByteArrayInputStream(bos
 						.toByteArray()));
 			} catch (IOException e) {
-				// TODO return defaultProperties
+				// Something failed trying to load the properties. Skipping...
 			}
 		}
 		return combinedProperties;
