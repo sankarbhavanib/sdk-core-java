@@ -45,6 +45,13 @@ public class IPNMessage {
 		httpConfiguration.setMaxHttpConnection(Integer
 				.parseInt(configurationMap
 						.get(Constants.HTTP_CONNECTION_MAX_CONNECTION)));
+		if (Boolean.valueOf(configurationMap.get(Constants.USE_HTTP_PROXY))) {
+			httpConfiguration.setProxyHost(configurationMap.get(Constants.HTTP_PROXY_HOST));
+			httpConfiguration.setProxyPort(Integer.parseInt(configurationMap.get(Constants.HTTP_PROXY_PORT)));
+			httpConfiguration.setProxySet(Boolean.valueOf(configurationMap.get(Constants.USE_HTTP_PROXY)));
+			httpConfiguration.setProxyUserName(configurationMap.get(Constants.HTTP_PROXY_USERNAME));
+			httpConfiguration.setProxyPassword(configurationMap.get(Constants.HTTP_PROXY_PASSWORD));
+		}
 	}
 	
 	/**
