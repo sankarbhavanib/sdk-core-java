@@ -1,4 +1,8 @@
 ### CHANGELOG
+#### V1.6.9 (June 9, 2015)
+
+   * Fix for IPNListner URL encoding
+
 #### V1.6.8 (April 23, 2015)
 
    * Fix for IPNListener behind firewall
