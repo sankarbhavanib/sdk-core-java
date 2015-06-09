@@ -1,6 +1,9 @@
 package com.paypal.ipn;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -48,7 +51,7 @@ public class IPNListenerTest {
 	
 	@Test(dependsOnMethods = {"getIpnValueTest"})
 	public void validateTest(){
-		Assert.assertEquals(false, ipnmsg.validate());
+		Assert.assertEquals(true, ipnmsg.validate());
 	}
 	
 	@Test(dependsOnMethods = {"validateTest"})
@@ -56,5 +59,24 @@ public class IPNListenerTest {
 		String transactionType = ipnmsg.getTransactionType();
 		Assert.assertEquals("Adaptive Payment PAY", transactionType);
 	}
-	
+
+	@Test
+	public void testEncodedString() throws UnsupportedEncodingException {
+		Map<String, String[]> map = new HashMap<String, String[]>();
+		String charset = "windows-1252";
+		map.put("subject", new String[]{URLEncoder.encode("ITEM DISCOUNT 50%", charset)});
+		map.put("charset", new String[]{charset});
+		IPNMessage ipnMessage = new IPNMessage(map);
+
+		Assert.assertEquals("ITEM DISCOUNT 50%", ipnMessage.getIpnValue("subject"));
+
+		map = new HashMap<String, String[]>();
+		for (String key : ipnMap.keySet()) {
+			map.put(key, new String[]{URLDecoder.decode(ipnMap.get(key)[0], charset)});
+		}
+
+		ipnMessage = new IPNMessage(map, true);
+
+		Assert.assertEquals(true, ipnMessage.validate());
+	}
 }

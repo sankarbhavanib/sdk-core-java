@@ -53,23 +53,36 @@ public class IPNMessage {
 			httpConfiguration.setProxyPassword(configurationMap.get(Constants.HTTP_PROXY_PASSWORD));
 		}
 	}
-	
+
 	/**
 	 * Constructs {@link IPNMessage} using the given {@link HttpServletRequest}
 	 * to retrieve the name and value {@link Map}.
-	 * 
+	 *
 	 * @param request
 	 *            {@link HttpServletRequest} object received from PayPal IPN
 	 *            call back.
 	 */
 	public IPNMessage(HttpServletRequest request) {
-		this(request.getParameterMap());
+		this(request.getParameterMap(), true);
 	}
 
 	/**
 	 * Constructs {@link IPNMessage} using the given {@link Map} for name and
 	 * values.
-	 * 
+	 *
+	 * @param ipnMap
+	 *            {@link Map} representing IPN name/value pair
+	 *
+	 * @param decoded boolean Representing if the value has been decoded
+	 */
+	public IPNMessage(Map<String, String[]> ipnMap, boolean decoded) {
+		this(ipnMap, ConfigManager.getInstance().getConfigurationMap(), decoded);
+	}
+
+	/**
+	 * Constructs {@link IPNMessage} using the given {@link Map} for name and
+	 * values.
+	 *
 	 * @param ipnMap
 	 *            {@link Map} representing IPN name/value pair
 	 */
@@ -81,7 +94,25 @@ public class IPNMessage {
 	 * Constructs {@link IPNMessage} using the given {@link HttpServletRequest}
 	 * to retrieve the name and value {@link Map} and a custom configuration
 	 * {@link Map}
-	 * 
+	 *
+	 * @param request
+	 *            {@link HttpServletRequest} object received from PayPal IPN
+	 *            call back.
+	 * @param configurationMap
+	 *            custom configuration {@link Map}
+	 *
+	 * @param decoded boolean Representing if the value has been decoded
+	 */
+	public IPNMessage(HttpServletRequest request,
+					  Map<String, String> configurationMap, boolean decoded) {
+		this(request.getParameterMap(), configurationMap, decoded);
+	}
+
+	/**
+	 * Constructs {@link IPNMessage} using the given {@link HttpServletRequest}
+	 * to retrieve the name and value {@link Map} and a custom configuration
+	 * {@link Map}
+	 *
 	 * @param request
 	 *            {@link HttpServletRequest} object received from PayPal IPN
 	 *            call back.
@@ -90,19 +121,32 @@ public class IPNMessage {
 	 */
 	public IPNMessage(HttpServletRequest request,
 			Map<String, String> configurationMap) {
-		this(request.getParameterMap(), configurationMap);
+		this(request.getParameterMap(), configurationMap, true);
 	}
 
 	/**
 	 * Constructs {@link IPNMessage} using the given {@link Map} for name and
 	 * values and a custom configuration {@link Map}
-	 * 
+	 *
 	 * @param ipnMap
 	 *            {@link Map} representing IPN name/value pair
 	 * @param configurationMap
 	 */
 	public IPNMessage(Map<String, String[]> ipnMap,
-			Map<String, String> configurationMap) {
+					  Map<String, String> configurationMap) {
+		this(ipnMap, configurationMap, false);
+	}
+
+	/**
+	 * Constructs {@link IPNMessage} using the given {@link Map} for name and
+	 * values and a custom configuration {@link Map}
+	 *
+	 * @param ipnMap
+	 *            {@link Map} representing IPN name/value pair
+	 * @param configurationMap
+	 */
+	public IPNMessage(Map<String, String[]> ipnMap,
+			Map<String, String> configurationMap, boolean decoded) {
 		this.configurationMap = SDKUtil.combineDefaultMap(configurationMap);
 		initialize();
 		payload = new StringBuffer("cmd=_notify-validate");
@@ -114,10 +158,16 @@ public class IPNMessage {
 				String name = entry.getKey();
 				String[] value = entry.getValue();
 				try {
-					this.ipnMap.put(name,
-							 URLDecoder.decode(value[0], encoding));
-					payload.append("&").append(name).append("=")
+					if (decoded) {
+						this.ipnMap.put(name, value[0]);
+						payload.append("&").append(name).append("=")
 							.append(URLEncoder.encode(value[0], encoding));
+					} else {
+						this.ipnMap.put(name,
+							URLDecoder.decode(value[0], encoding));
+						payload.append("&").append(name).append("=")
+							.append(value[0]);
+					}
 				} catch (Exception e) {
 					LoggingManager.debug(IPNMessage.class, e.getMessage());
 				}
@@ -200,4 +250,7 @@ public class IPNMessage {
 		return ipnEPoint;
 	}
 
+	public String getPayload() {
+		return payload.toString();
+	}
 }
