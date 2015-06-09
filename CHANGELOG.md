@@ -1,4 +1,13 @@
 ### CHANGELOG
+#### V1.6.9 (June 9, 2015)
+
+   * Fix for IPNListner URL encoding
+
+#### V1.6.8 (April 23, 2015)
+
+   * Fix for IPNListener behind firewall
+   * Made sdk_config.properties optional
+   
 #### V1.6.7 (March 31, 2015)
 
    * Made SSL connection configurable
@@ -10,7 +19,7 @@
 #### V1.6.5 (November 10, 2014)
 
    * Added user-agent header to classic SDK codebase
-   
+
 #### V1.6.4 (October 16, 2014)
 
    * Change SSL to TLS in SSLUtil.java for SSL Poodle issue
@@ -35,4 +44,3 @@
 #### V1.5.0 (September 26, 2013)
 
    * Updating core to support genio
-

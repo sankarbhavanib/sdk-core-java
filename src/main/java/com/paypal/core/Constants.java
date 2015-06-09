@@ -1,22 +1,22 @@
 package com.paypal.core;
 
 public final class Constants {
-	
+
 	private Constants() {}
 
 	// General Constants
 	// UTF-8 Encoding format
 	public static final String ENCODING_FORMAT = "UTF-8";
-	
+
 	// Empty String
 	public static final String EMPTY_STRING = "";
-	
+
 	// Account prefix used in config properties file
 	public static final String ACCOUNT_PREFIX = "acct";
 
 	// SOAP Payload format
 	public static final String PAYLOAD_FORMAT_SOAP = "SOAP";
-	
+
 	// NVP Payload format
 	public static final String PAYLOAD_FORMAT_NVP = "NV";
 
@@ -59,13 +59,13 @@ public final class Constants {
 
 	// PayPal Device IP Address Header
 	public static final String PAYPAL_DEVICE_IPADDRESS_HEADER = "X-PAYPAL-DEVICE-IPADDRESS";
-	
+
 	// User Agent Header
 	public static final String USER_AGENT_HEADER = "User-Agent";
-	
+
 	// PayPal Request ID Header
 	public static final String PAYPAL_REQUEST_ID_HEADER = "PayPal-Request-Id";
-	
+
 	// Authorization Header
 	public static final String AUTHORIZATION_HEADER = "Authorization";
 
@@ -75,7 +75,7 @@ public final class Constants {
 	// Constants key defined for configuration options in application properties
 	// End point
 	public static final String ENDPOINT = "service.EndPoint";
-	
+
 	// OAuth End point
 	public static final String OAUTH_ENDPOINT = "oauth.EndPoint";
 
@@ -151,7 +151,7 @@ public final class Constants {
 
 	// HTTP Content Type JSON
 	public static final String HTTP_CONTENT_TYPE_JSON = "application/json";
-	
+
 	// HTTP Content Type Patch JSON
         public static final String HTTP_CONTENT_TYPE_PATCH_JSON = "application/json-patch+json";
 	public static final String HTTP_CONTENT_TYPE_XML = "text/xml";
@@ -203,7 +203,7 @@ public final class Constants {
 
 	// Open Id redirect URI Constant Live
 	public static final String OPENID_REDIRECT_URI_CONSTANT_LIVE = "https://www.paypal.com/webapps/auth/protocol/openidconnect";
-	
+
 	// Open Id redirect URI Constant Sandbox
 	public static final String OPENID_REDIRECT_URI_CONSTANT_SANDBOX = "https://www.sandbox.paypal.com/webapps/auth/protocol/openidconnect";
 
@@ -215,9 +215,9 @@ public final class Constants {
 
 	// Java SDK_ID for paypal-core
 	public static final String SDK_ID = "paypal-core-java";
-	
+
 	// Java SDK_VERSION for paypal-core
-	public static final String SDK_VERSION = "1.6.7";
+	public static final String SDK_VERSION = "1.6.8";
 
 	// SSLUtil JRE
 	public static final String SSLUTIL_JRE = "sslutil.jre";
