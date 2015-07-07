@@ -69,8 +69,11 @@ public class DefaultHttpConnection extends HttpConnection {
 		if (this.connection instanceof HttpsURLConnection) {
 			((HttpsURLConnection) this.connection)
 					.setSSLSocketFactory(this.sslContext.getSocketFactory());
+		} else if (this.connection instanceof com.sun.net.ssl.HttpsURLConnection) {
+			((com.sun.net.ssl.HttpsURLConnection) this.connection)
+					.setSSLSocketFactory(this.sslContext.getSocketFactory());
 		}
-
+		
 		if (this.config.getProxyUserName() != null
 				&& this.config.getProxyPassword() != null) {
 			final String username = this.config.getProxyUserName();
