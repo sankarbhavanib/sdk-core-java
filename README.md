@@ -26,6 +26,13 @@ The core uses .properties format configuration file. Sample of this file is at '
 
 *	Service configuration.
 
+## Credentials update
+*NOTE*: This only applies to classic API SDKs.
+
+*   [Get the new certificate](https://developer.paypal.com/docs/classic/api/apiCredentials/#renewing-an-api-certificate)
+*   [Encrypt the new certificate](https://developer.paypal.com/docs/classic/api/apiCredentials/#encrypting-your-certificate)
+*   Check [the encrypted certificate file's path in your config](https://github.com/paypal/sdk-core-java/blob/master/src/test/resources/sdk_config.properties#L12) and update if necessary.
+
 ## OpenID Connect Integration
    * Redirect your buyer to `Authorization.getRedirectUrl(redirectURI, scope, configurationMap);` to obtain authorization.
    * Capture the authorization code that is available as a query parameter (`code`) in the redirect url
