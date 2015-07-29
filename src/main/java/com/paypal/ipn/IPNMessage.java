@@ -52,6 +52,7 @@ public class IPNMessage {
 			httpConfiguration.setProxyUserName(configurationMap.get(Constants.HTTP_PROXY_USERNAME));
 			httpConfiguration.setProxyPassword(configurationMap.get(Constants.HTTP_PROXY_PASSWORD));
 		}
+		httpConfiguration.setGoogleAppEngine(Boolean.valueOf(configurationMap.get(Constants.GOOGLE_APP_ENGINE)));
 	}
 
 	/**
@@ -183,7 +184,7 @@ public class IPNMessage {
 		URL url = null;
 		String res = Constants.EMPTY_STRING;
 		HttpConnection connection = ConnectionManager.getInstance()
-				.getConnection();
+				.getConnection(httpConfiguration);
 
 		try {
 
