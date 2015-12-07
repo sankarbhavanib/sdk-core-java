@@ -1,4 +1,8 @@
 ### CHANGELOG
+#### V1.7.0
+
+   * TLS 1.2 support
+
 #### V1.6.9 (June 9, 2015)
 
    * Fix for IPNListner URL encoding
