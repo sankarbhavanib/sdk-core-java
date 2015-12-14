@@ -62,7 +62,7 @@ public abstract class SSLUtil {
 			SSLContext ctx = null;
 			String protocol = CONFIG_MAP.get(Constants.SSLUTIL_PROTOCOL);
 			try {
-					ctx = SSLContext.getInstance("TLSv1.2");
+				ctx = SSLContext.getInstance("TLSv1.2");
 			} catch (NoSuchAlgorithmException e) {
 				LoggingManager.warn(SSLUtil.class, "WARNING: Your system does not support TLSv1.2. Per PCI Security Council mandate (https://github.com/paypal/TLS-update), you MUST update to latest security library.");
 				ctx = SSLContext.getInstance(protocol);
