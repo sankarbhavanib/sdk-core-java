@@ -1,4 +1,10 @@
 ### CHANGELOG
+#### V1.7.1
+
+   * Fixed config file load from path with whitespace #62 (https://github.com/paypal/sdk-core-java/pull/62)
+   * Added expires check for token call #61 (https://github.com/paypal/sdk-core-java/pull/61)
+   * Fixed time mismatch issue for OAuthToken expire #60 (https://github.com/paypal/sdk-core-java/pull/60)
+   
 #### V1.7.0
 
    * TLS 1.2 support
