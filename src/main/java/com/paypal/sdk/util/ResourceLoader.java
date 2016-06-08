@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URISyntaxException;
 import java.net.URL;
 
 /**
@@ -47,8 +48,7 @@ public class ResourceLoader {
 	public InputStream getInputStream() throws IOException {
 		if (inputStream == null) {
 			if (!searchClasspath(name) && !searchResourcepath(name)) {
-				throw new IOException("Resource '" + name
-						+ "' could not be found");
+				throw new IOException("Resource '" + name + "' could not be found");
 			}
 			if (file != null) {
 				inputStream = new BufferedInputStream(new FileInputStream(file));
@@ -99,7 +99,11 @@ public class ResourceLoader {
 	private static File urlToFile(URL res) {
 		String externalForm = res.toExternalForm();
 		if (externalForm.startsWith(FILESCHEME)) {
-			return new File(externalForm.substring(5));
+			try {
+				return new File(res.toURI());
+			} catch (URISyntaxException e) {
+				return new File(externalForm.substring(5));
+			}
 		}
 		return null;
 	}
