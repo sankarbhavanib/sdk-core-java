@@ -4,7 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ConfigurationUtil {
-	
+
+	private ConfigurationUtil() {
+	}
+
 	public static Map<String, String> getSignatureConfiguration() {
 		Map<String, String> initMap = new HashMap<String, String>();
 		initMap.put("acct1.UserName", "jb-us-seller_api1.paypal.com");
