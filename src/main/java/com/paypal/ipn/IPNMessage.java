@@ -181,7 +181,7 @@ public class IPNMessage {
 	 */
 	public boolean validate() {
 		Map<String, String> headerMap = new HashMap<String, String>();
-		URL url = null;
+		URL url;
 		String res = Constants.EMPTY_STRING;
 		HttpConnection connection = ConnectionManager.getInstance()
 				.getConnection(httpConfiguration);
@@ -234,7 +234,7 @@ public class IPNMessage {
 	}
 
 	private String getIPNEndpoint() {
-		String ipnEPoint = null;
+		String ipnEPoint;
 		ipnEPoint = configurationMap.get(Constants.IPN_ENDPOINT);
 		if (ipnEPoint == null) {
 			String mode = configurationMap.get(Constants.MODE);

@@ -158,7 +158,7 @@ public class OAuthSignature {
 		validate(this.requestURI, "Request URI");
 		validate(this.timestamp, "Timestamp");
 
-		String signature = "";
+		String signature;
 		try {
 			String key = PayPalURLEncoder.encode(consumerSecret, ENCODING);
 			key += PARAM_DELIMETER;
@@ -179,7 +179,7 @@ public class OAuthSignature {
 			signatureBase += PayPalURLEncoder.encode(requestURI, ENCODING);
 			signatureBase += PARAM_DELIMETER;
 
-			String paramString = "";
+			String paramString;
 			StringBuilder paramStringBuilder = new StringBuilder();
 			Iterator<Parameter> it = params.iterator();
 			while (it.hasNext()) {
@@ -247,7 +247,7 @@ public class OAuthSignature {
 	 * @throws OAuthException
 	 */
 	private String normalizeURI(String uri) throws OAuthException {
-		String normalizedURI = "", port = "", scheme = "", path = "", authority = "";
+		String normalizedURI, port = "", scheme, path = "", authority;
 		int i, j, k;
 
 		try {

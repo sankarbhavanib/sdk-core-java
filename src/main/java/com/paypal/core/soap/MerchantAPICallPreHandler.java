@@ -382,7 +382,7 @@ public class MerchantAPICallPreHandler implements APICallPreHandler {
 	 */
 	private ICredential getCredentials() throws InvalidCredentialException,
 			MissingCredentialException {
-		ICredential returnCredential = null;
+		ICredential returnCredential;
 		CredentialManager credentialManager = new CredentialManager(
 				this.configurationMap);
 		returnCredential = credentialManager.getCredentialObject(apiUserName);
@@ -443,7 +443,7 @@ public class MerchantAPICallPreHandler implements APICallPreHandler {
 	 */
 	private String getPayLoadUsingSOAPHeader(String payLoad, String namespace,
 			String header) {
-		String returnPayLoad = null;
+		String returnPayLoad;
 		String formattedPayLoad = processPayLoadForFormatting(payLoad);
 		returnPayLoad = MessageFormat.format(formattedPayLoad, new Object[] {
 				namespace, header });

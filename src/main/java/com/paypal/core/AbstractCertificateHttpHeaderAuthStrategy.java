@@ -34,7 +34,7 @@ public abstract class AbstractCertificateHttpHeaderAuthStrategy implements
 	 */
 	public Map<String, String> generateHeaderStrategy(
 			CertificateCredential credential) throws OAuthException {
-		Map<String, String> headers = null;
+		Map<String, String> headers;
 		if (credential.getThirdPartyAuthorization() instanceof TokenAuthorization) {
 			headers = processTokenAuthorization(credential,
 					(TokenAuthorization) credential

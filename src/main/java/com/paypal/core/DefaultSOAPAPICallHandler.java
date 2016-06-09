@@ -325,7 +325,7 @@ public class DefaultSOAPAPICallHandler implements APICallPreHandler {
 	}
 
 	public String getPayLoad() {
-		String payload = null;
+		String payload;
 		if (soapBodyContent != null) {
 			try {
 				payload = getSoapEnvelope();
@@ -361,7 +361,7 @@ public class DefaultSOAPAPICallHandler implements APICallPreHandler {
 	}
 
 	private String getSoapEnvelopeStart() {
-		String envelope = null;
+		String envelope;
 		if (namespaces != null) {
 			envelope = MessageFormat.format(SOAP_ENV_START,
 					new Object[] { namespaces });
@@ -376,7 +376,7 @@ public class DefaultSOAPAPICallHandler implements APICallPreHandler {
 	}
 
 	private String getSoapHeaderStart() {
-		String header = null;
+		String header;
 		if (headerString != null) {
 			header = MessageFormat.format(SOAP_HEAD_START, new Object[] { null,
 					headerString });
@@ -391,7 +391,7 @@ public class DefaultSOAPAPICallHandler implements APICallPreHandler {
 	}
 
 	private String getSoapBodyStart() {
-		String body = null;
+		String body;
 		if (rawPayLoad != null) {
 			body = MessageFormat.format(SOAP_BODY_START, new Object[] { null,
 					null, rawPayLoad });
@@ -431,7 +431,7 @@ public class DefaultSOAPAPICallHandler implements APICallPreHandler {
 	 */
 	private Node getSoapEnvelopeAsNode() throws ParserConfigurationException,
 			SAXException, IOException {
-		Node envelopeNode = null;
+		Node envelopeNode;
 		Document soapDocument = getSoapEnvelopeAsDocument();
 		if (soapHeaderContent != null) {
 			Node headerContentNode = soapDocument.importNode(

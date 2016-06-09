@@ -33,7 +33,7 @@ public abstract class AbstractSignatureHttpHeaderAuthStrategy implements
 	 */
 	public Map<String, String> generateHeaderStrategy(SignatureCredential credential)
 			throws OAuthException {
-		Map<String, String> headers = null;
+		Map<String, String> headers;
 		if (credential.getThirdPartyAuthorization() instanceof TokenAuthorization) {
 			headers = processTokenAuthorization(credential,
 					(TokenAuthorization) credential

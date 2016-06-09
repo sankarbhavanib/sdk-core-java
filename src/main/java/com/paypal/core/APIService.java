@@ -145,9 +145,9 @@ public class APIService {
 		 * the headers, payload and endpoints are fed by the corresponding
 		 * apiCallPreHandlers
 		 */
-		String response = null;
+		String response;
 		apiCallPreHandler.validate();
-		Map<String, String> headers = null;
+		Map<String, String> headers;
 		ConnectionManager connectionMgr = ConnectionManager.getInstance();
 		HttpConnection connection = connectionMgr
 				.getConnection(httpConfiguration);

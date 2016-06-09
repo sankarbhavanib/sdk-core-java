@@ -59,7 +59,7 @@ public abstract class SSLUtil {
 	public static SSLContext getSSLContext(KeyManager[] keymanagers)
 			throws SSLConfigurationException {
 		try {
-			SSLContext ctx = null;
+			SSLContext ctx;
 			String protocol = CONFIG_MAP.get(Constants.SSLUTIL_PROTOCOL);
 			try {
 				ctx = SSLContext.getInstance("TLSv1.2");
@@ -120,7 +120,7 @@ public abstract class SSLUtil {
 	 */
 	public static SSLContext setupClientSSL(String certPath, String certPassword)
 			throws SSLConfigurationException {
-		SSLContext sslContext = null;
+		SSLContext sslContext;
 		try {
 			KeyStore ks = p12ToKeyStore(certPath, certPassword);
 			KMF.init(ks, certPassword.toCharArray());

@@ -76,7 +76,7 @@ public final class SDKUtil {
 	 * @return Replaced text
 	 */
 	public static String escapeInvalidXmlChars(String textContent) {
-		StringBuilder stringBuilder = null;
+		StringBuilder stringBuilder;
 		String response = null;
 		if (textContent != null) {
 			stringBuilder = new StringBuilder();
@@ -166,7 +166,7 @@ public final class SDKUtil {
 	 */
 	public static String escapeInvalidXmlCharsRegex(Integer intContent) {
 		String response = null;
-		String textContent = null;
+		String textContent;
 		if (intContent != null) {
 			textContent = intContent.toString();
 			response = escapeInvalidXmlCharsRegex(textContent);
@@ -184,7 +184,7 @@ public final class SDKUtil {
 	 */
 	public static String escapeInvalidXmlCharsRegex(Long longContent) {
 		String response = null;
-		String textContent = null;
+		String textContent;
 		if (longContent != null) {
 			textContent = longContent.toString();
 			response = escapeInvalidXmlCharsRegex(textContent);
@@ -202,7 +202,7 @@ public final class SDKUtil {
 	 */
 	public static String escapeInvalidXmlCharsRegex(Boolean boolContent) {
 		String response = null;
-		String textContent = null;
+		String textContent;
 		if (boolContent != null) {
 			textContent = boolContent.toString();
 			response = escapeInvalidXmlCharsRegex(textContent);
@@ -220,7 +220,7 @@ public final class SDKUtil {
 	 */
 	public static String escapeInvalidXmlCharsRegex(Double doubleContent) {
 		String response = null;
-		String textContent = null;
+		String textContent;
 		if (doubleContent != null) {
 			textContent = doubleContent.toString();
 			response = escapeInvalidXmlCharsRegex(textContent);
@@ -238,7 +238,7 @@ public final class SDKUtil {
 	 */
 	public static String escapeInvalidXmlCharsRegex(Float floatContent) {
 		String response = null;
-		String textContent = null;
+		String textContent;
 		if (floatContent != null) {
 			textContent = floatContent.toString();
 			response = escapeInvalidXmlCharsRegex(textContent);
@@ -257,7 +257,7 @@ public final class SDKUtil {
 	 * @throws IOException
 	 */
 	public static Map<String, String> constructMap(Properties properties) {
-		Map<String, String> propsMap = null;
+		Map<String, String> propsMap;
 		Properties combinedProperties = ConfigManager
 				.combineDefaultProperties(properties);
 		propsMap = new HashMap<String, String>();

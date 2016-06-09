@@ -158,7 +158,7 @@ public final class OAuthTokenCredential implements ICredential {
 	}
 
 	private String generateAccessToken() throws PayPalRESTException {
-		String generatedToken = null;
+		String generatedToken;
 		String base64ClientID = generateBase64String(clientID + ":"
 				+ clientSecret);
 		generatedToken = generateOAuthToken(base64ClientID);
@@ -170,8 +170,8 @@ public final class OAuthTokenCredential implements ICredential {
 	 */
 	private String generateBase64String(String clientCredentials)
 			throws PayPalRESTException {
-		String base64ClientID = null;
-		byte[] encoded = null;
+		String base64ClientID;
+		byte[] encoded;
 		try {
 			encoded = Base64.encodeBase64(clientCredentials.getBytes("UTF-8"));
 			base64ClientID = new String(encoded, "UTF-8");
@@ -186,9 +186,9 @@ public final class OAuthTokenCredential implements ICredential {
 	 */
 	private String generateOAuthToken(String base64ClientID)
 			throws PayPalRESTException {
-		HttpConnection connection = null;
-		HttpConfiguration httpConfiguration = null;
-		String generatedToken = null;
+		HttpConnection connection;
+		HttpConfiguration httpConfiguration;
+		String generatedToken;
 		try {
 			connection = ConnectionManager.getInstance().getConnection();
 			httpConfiguration = getOAuthHttpConfiguration();
