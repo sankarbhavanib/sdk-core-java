@@ -11,6 +11,9 @@ import org.testng.annotations.DataProvider;
 public class DataProviderClass {
 	static ConfigManager conf;
 
+	private DataProviderClass() {
+	}
+
 	@DataProvider(name = "configParams")
 	public static Object[][] configParams() throws FileNotFoundException,
 			IOException {

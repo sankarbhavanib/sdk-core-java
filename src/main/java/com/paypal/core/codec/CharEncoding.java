@@ -123,4 +123,7 @@ public class CharEncoding {
      * @see <a href="http://download.oracle.com/javase/1.5.0/docs/api/java/nio/charset/Charset.html">Standard charsets</a>
      */
     public static final String UTF_8 = "UTF-8";
+
+    private CharEncoding() {
+    }
 }
