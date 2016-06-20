@@ -225,10 +225,10 @@ public abstract class PayPalResource {
 			HttpMethod httpMethod, String resourcePath, String payLoad,
 			Class<T> clazz) throws PayPalRESTException {
 		T t = null;
-		Map<String, String> cMap = null;
-		String accessToken = null;
-		String requestId = null;
-		Map<String, String> headersMap = null;
+		Map<String, String> cMap;
+		String accessToken;
+		String requestId;
+		Map<String, String> headersMap;
 		if (apiContext != null) {
 			if (apiContext.getConfigurationMap() != null) {
 				cMap = SDKUtil.combineDefaultMap(apiContext
@@ -299,8 +299,8 @@ public abstract class PayPalResource {
 			HttpMethod httpMethod, String resourcePath,
 			Map<String, String> headersMap, String payLoad, String requestId,
 			Class<T> clazz) throws PayPalRESTException {
-		T t = null;
-		Map<String, String> cMap = null;
+		T t;
+		Map<String, String> cMap;
 
 		/*
 		 * Check for null before combining with default
@@ -350,7 +350,7 @@ public abstract class PayPalResource {
 			Map<String, String> configurationMap, String payLoad,
 			String resourcePath, Map<String, String> headersMap,
 			String accessToken, String requestId, SDKVersion sdkVersion) {
-		APICallPreHandler apiCallPreHandler = null;
+		APICallPreHandler apiCallPreHandler;
 		RESTAPICallPreHandler restAPICallPreHandler = new RESTAPICallPreHandler(
 				configurationMap, headersMap);
 		restAPICallPreHandler.setResourcePath(resourcePath);

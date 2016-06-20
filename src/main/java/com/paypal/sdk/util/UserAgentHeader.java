@@ -92,7 +92,7 @@ public class UserAgentHeader {
 	 * @return
 	 */
 	private String formUserAgentHeader() {
-		String header = null;
+		String header;
 		StringBuilder stringBuilder = new StringBuilder("PayPalSDK/"
 				+ productId + " " + productVersion + " ");
 		stringBuilder.append("(").append(JAVAHEADER);

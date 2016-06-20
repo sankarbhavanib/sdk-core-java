@@ -44,7 +44,7 @@ public final class Session {
 	public static String getRedirectURL(String redirectURI, List<String> scope,
 			APIContext apiContext, ClientCredentials clientCredentials) {
 		String redirectURL = null;
-		Map<String, String> configurationMap = null;
+		Map<String, String> configurationMap;
 		try {
 			if (apiContext.getConfigurationMap() == null) {
 				configurationMap = SDKUtil.combineDefaultMap(ConfigManager
@@ -92,7 +92,7 @@ public final class Session {
 			// TODO revisit method while removing the similar method without
 			// ClientCredentials; ClientID and ClientSecret should not be included
 			// in configuration map - add them to the ClientCredentials class
-			String clientID = null;
+			String clientID;
 			if (clientCredentials == null) {
 				clientID = configurationMap.get(Constants.CLIENT_ID) != null ? configurationMap
 						.get(Constants.CLIENT_ID) : "";
@@ -137,7 +137,7 @@ public final class Session {
 	public static String getLogoutUrl(String redirectURI, String idToken,
 			APIContext apiContext) {
 		String logoutURL = null;
-		Map<String, String> configurationMap = null;
+		Map<String, String> configurationMap;
 		try {
 			if (apiContext.getConfigurationMap() == null) {
 				configurationMap = SDKUtil.combineDefaultMap(ConfigManager

@@ -35,7 +35,7 @@ public final class RESTUtil {
 	 */
 	public static String formatURIPath(String pattern, Object[] parameters) {
 		String formattedPath = null;
-		Object[] finalParameters = null;
+		Object[] finalParameters;
 		if (pattern != null) {
 			if (parameters != null
 					&& parameters.length == 1
@@ -120,7 +120,7 @@ public final class RESTUtil {
 	public static String formatURIPath(String pattern,
 			Map<String, String> pathParameters,
 			Map<String, String> queryParameters) throws PayPalRESTException {
-		String formattedURIPath = null;
+		String formattedURIPath;
 		if (pattern != null && pattern.trim().length() > 0
 				&& pathParameters != null && pathParameters.size() > 0) {
 			for (Entry<String, String> entry : pathParameters.entrySet()) {

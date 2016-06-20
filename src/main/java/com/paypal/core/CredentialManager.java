@@ -79,7 +79,7 @@ public final class CredentialManager {
 	}
 
 	private Set<String> getAccounts(Map<String, String> configurationMap) {
-		String key = Constants.EMPTY_STRING;
+		String key;
 		Set<String> set = new HashSet<String>();
 		for (Object obj : configurationMap.keySet()) {
 			key = (String) obj;
@@ -94,7 +94,7 @@ public final class CredentialManager {
 
 	private Map<String, String> getValuesByCategory(
 			Map<String, String> configurationMap, String category) {
-		String key = Constants.EMPTY_STRING;
+		String key;
 		HashMap<String, String> map = new HashMap<String, String>();
 		for (Object obj : configurationMap.keySet()) {
 			key = (String) obj;
@@ -107,7 +107,7 @@ public final class CredentialManager {
 
 	private ICredential returnCredential(Map<String, String> credMap,
 			String acctKey) throws InvalidCredentialException {
-		ICredential credential = null;
+		ICredential credential;
 		String userName = (String) credMap.get(acctKey
 				+ Constants.CREDENTIAL_USERNAME_SUFFIX);
 		String password = (String) credMap.get(acctKey

@@ -263,8 +263,8 @@ public class RESTAPICallPreHandler implements APICallPreHandler {
 	 */
 	private String generateBase64String(String clientID)
 			throws UnsupportedEncodingException {
-		String base64ClientID = null;
-		byte[] encoded = null;
+		String base64ClientID;
+		byte[] encoded;
 		encoded = Base64.encodeBase64(clientID.getBytes("UTF-8"));
 		base64ClientID = new String(encoded, "UTF-8");
 		return base64ClientID;

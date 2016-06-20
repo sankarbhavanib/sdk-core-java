@@ -248,7 +248,7 @@ public final class ConfigManager {
 	 * @return Map
 	 */
 	public Map<String, String> getValuesByCategory(String category) {
-		String key = Constants.EMPTY_STRING;
+		String key;
 		HashMap<String, String> map = new HashMap<String, String>();
 		for (Object obj : properties.keySet()) {
 			key = (String) obj;
@@ -268,7 +268,7 @@ public final class ConfigManager {
 	 */
 
 	public Set<String> getNumOfAcct() {
-		String key = Constants.EMPTY_STRING;
+		String key;
 		Set<String> set = new HashSet<String>();
 		for (Object obj : properties.keySet()) {
 			key = (String) obj;

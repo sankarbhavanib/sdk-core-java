@@ -71,7 +71,7 @@ public final class JSONFormatter {
 	 * @return Object of the target type
 	 */
 	public static <T> T fromJSON(String responseString, Class<T> clazz) {
-		T t = null;
+		T t;
 		if (clazz.isAssignableFrom(responseString.getClass())) {
 			t = clazz.cast(responseString);
 		} else {

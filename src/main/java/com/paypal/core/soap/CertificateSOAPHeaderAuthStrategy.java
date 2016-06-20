@@ -40,7 +40,7 @@ public class CertificateSOAPHeaderAuthStrategy implements
 	}
 
 	public String generateHeaderStrategy(CertificateCredential credential) {
-		String payLoad = null;
+		String payLoad;
 		if (thirdPartyAuthorization instanceof TokenAuthorization) {
 			payLoad = tokenAuthPayLoad();
 		} else if (thirdPartyAuthorization instanceof SubjectAuthorization) {

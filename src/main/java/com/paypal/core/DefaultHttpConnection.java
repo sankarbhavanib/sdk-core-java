@@ -119,7 +119,7 @@ public class DefaultHttpConnection extends HttpConnection {
 								} catch (final ProtocolException pe) {
 									Class<?> connectionClass = httpURLConnection
 											.getClass();
-									Field delegateField = null;
+									Field delegateField;
 									try {
 										delegateField = connectionClass
 												.getDeclaredField("delegate");
