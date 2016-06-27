@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/paypal/sdk-core-java.svg?branch=master)](https://travis-ci.org/sankarbhavanib/sdk-core-java)
+[![Build Status](https://travis-ci.org/sankarbhavanib/sdk-core-java.svg?branch=master)](https://travis-ci.org/sankarbhavanib/sdk-core-java)
 
 This repository contains core files for all Java sdks.
 
