@@ -3,7 +3,7 @@ language: java
 jdk:
   - oraclejdk7
 after_success:
-  - mvn cobertura:cobertura coveralls:report -DrepoToken=Qi9xzH9W4PItEcK58EmWNpvQm8eanrlp5
+  - mvn cobertura:cobertura coveralls:report -DrepoToken=token_coveralls
 after_script: mvn test 
 notifications:
   recipients:
