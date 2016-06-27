@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.org/sankarbhavanib/sdk-core-java.svg?branch=master)](https://travis-ci.org/sankarbhavanib/sdk-core-java)
 
+[![Coverage Status](https://coveralls.io/repos/github/sankarbhavanib/sdk-core-java/badge.svg?branch=master)](https://coveralls.io/github/sankarbhavanib/sdk-core-java?branch=master)
+
 This repository contains core files for all Java sdks.
 
 ## Prerequisites:
