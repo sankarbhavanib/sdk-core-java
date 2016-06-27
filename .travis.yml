@@ -7,3 +7,5 @@ notifications:
   recipients:
     - DL-PP-JAVA-SDK@ebay.com
   on_success: change
+  after_success:
+  - mvn clean cobertura:cobertura coveralls:report
