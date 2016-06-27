@@ -8,4 +8,4 @@ notifications:
     - DL-PP-JAVA-SDK@ebay.com
   on_success: change
   after_success:
-  - mvn clean cobertura:cobertura coveralls:report
+  - mvn cobertura:cobertura coveralls:report -DrepoToken=Qi9xzH9W4PItEcK58EmWNpvQm8eanrlp5

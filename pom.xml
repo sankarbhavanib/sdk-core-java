@@ -27,6 +27,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<additionalparam>-Xdoclint:none</additionalparam>
+		<repoToken>001</repoToken>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -95,7 +96,7 @@
     <artifactId>coveralls-maven-plugin</artifactId>
     <version>4.2.0</version>
     <configuration>
-        <repoToken>Qi9xzH9W4PItEcK58EmWNpvQm8eanrlp5</repoToken>
+        <repoToken>${repoToken}</repoToken>
     </configuration>
 </plugin>
 <plugin>
