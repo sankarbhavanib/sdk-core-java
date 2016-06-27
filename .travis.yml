@@ -2,7 +2,7 @@ sudo: false
 language: java
 jdk:
   - oraclejdk7
-after_script: mvn test 
+script: mvn test 
 notifications:
   recipients:
     - DL-PP-JAVA-SDK@ebay.com
